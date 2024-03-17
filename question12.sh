@@ -1,3 +1,3 @@
 git checkout branch2
-git add .
+git add file4
 git commit -m "new"
