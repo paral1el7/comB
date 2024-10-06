@@ -1,0 +1,59 @@
+// Contains a function Fib.fib that calculates and returns the nth Fibonacci number recursively
+// n is supplied as an argument
+
+// Put your code here.
+// Fib.vm
+// 递归计算第 n 个斐波那契数
+
+// Function to calculate Fibonacci number: Fib.fib
+function Fib.fib 0
+
+// 获取参数 n
+push argument 0
+
+// 判断 n == 0，如果是，返回 0
+push constant 0
+eq
+if-goto BASE_CASE_0
+
+// 判断 n == 1，如果是，返回 1
+push argument 0
+push constant 1
+eq
+if-goto BASE_CASE_1
+
+// 如果 n > 1，递归调用 Fib.fib(n-1) 和 Fib.fib(n-2)
+
+// n = n - 1, 递归调用 Fib.fib(n-1)
+push argument 0
+push constant 1
+sub
+call Fib.fib 1
+
+// 将 Fib.fib(n-1) 结果保存在临时变量 temp 0
+push temp 0
+pop temp 0
+
+// n = n - 2, 递归调用 Fib.fib(n-2)
+push argument 0
+push constant 2
+sub
+call Fib.fib 1
+
+// 将结果与 Fib.fib(n-1) 相加
+push temp 0
+add
+
+// 返回结果
+return
+
+// 基本情况：n == 0 返回 0
+label BASE_CASE_0
+push constant 0
+return
+
+// 基本情况：n == 1 返回 1
+label BASE_CASE_1
+push constant 1
+return
+

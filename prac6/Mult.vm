@@ -1,0 +1,45 @@
+// Calculates a = x*y
+// a is a local variable
+// x & y are static variables
+
+// Put your code here.
+// Mult.vm
+// 计算 a = x * y
+
+// a 是局部变量 0, x 是静态变量 0, y 是静态变量 1
+
+// 初始化 a = 0
+push constant 0
+pop local 0
+
+// 将 y 压入栈以开始循环
+push static 1
+
+// 如果 y == 0，直接跳转到 END
+if-goto END
+
+// 循环开始
+label LOOP
+
+// 将 x 加到 a 中
+push local 0     // 将当前的 a 压入栈
+push static 0    // 将 x 压入栈
+add              // a = a + x
+pop local 0      // 将结果存回 a
+
+// y = y - 1
+push static 1
+push constant 1
+sub
+pop static 1
+
+// 如果 y > 0，继续循环
+push static 1
+if-goto LOOP
+
+// 标签 END：结束程序
+label END
+goto END
+
+
+
