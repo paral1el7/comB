@@ -1,0 +1,36 @@
+// Calculates y = |x|
+// x & y are static variables
+
+// Put your code here.
+// Abs.vm
+// 计算 y = |x|
+
+// x 是静态变量 0，y 是静态变量 1
+
+// 将 x 压入栈
+push static 0
+
+// 将 x 的值存入临时段 0
+push static 0
+
+// 如果 x >= 0, 跳转到 POSITIVE
+if-goto POSITIVE
+
+// 否则，x < 0, 我们取负数
+neg
+
+// 将 -x 存入 y
+pop static 1
+
+// 跳转到结束
+goto END
+
+// 标签: x 是正数或 0
+label POSITIVE
+
+// 将 x 存入 y
+pop static 1
+
+// 标签: 结束
+label END
+goto END
