@@ -2,65 +2,64 @@
 // a & b are both supplied as arguments
 
 // Put your code here.
+function ArrMax.arrMax 2
+// if size less than or equal to 0
+push argument 1
+push constant 1
+lt
+if-goto retFalse
 
-// ArrMax.vm
-// 计算数组中最大的元素
+//normal case
 
-function ArrMax.arrMax 0
-
-// 将数组的基地址存入 that 段
-push argument 0      // push m (数组的起始地址)
-pop pointer 1        // that = m
-
-// 初始化最大值，将第一个元素设为最大值
-push that 0          // push *that (数组的第一个元素)
-pop temp 0           // 将第一个元素存入 temp 0，作为当前最大值
-
-// 初始化索引，开始遍历数组 (从第二个元素开始)
-push constant 1      // 初始化索引 i = 1
-pop local 0          // i 存入 local 0
-
-label LOOP_START
-// 比较 i 和 n，若 i >= n 则跳转到 END
-push local 0         // push i
-push argument 1      // push n (数组的长度)
-lt                   // if i < n
-if-goto CONTINUE
-
-// 若 i >= n，跳转到结束
-goto END
-
-label CONTINUE
-// 计算当前元素的地址并与最大值比较
-push pointer 1       // push that (数组的基址)
-push local 0         // push i (索引)
-add                  // 计算当前元素的地址：that + i
-pop pointer 1        // 更新 that 段
-push that 0          // push *that (当前元素)
-push temp 0          // push 当前的最大值
-gt                   // 如果当前元素 > 最大值
-if-goto UPDATE_MAX   // 更新最大值
-
-// 不更新最大值，继续循环
-goto NEXT_ELEMENT
-
-label UPDATE_MAX
-// 更新最大值
-push that 0
+// loop counter
+push constant 0
 pop temp 0
 
-label NEXT_ELEMENT
-// i = i + 1
-push local 0
+//get pointer
+push argument 0
+pop pointer 1 
+
+//store best value in temp 1
+push that 0
+pop temp 1
+
+label loop
+//loop exit
+push temp 0
 push constant 1
 add
-pop local 0
+pop temp 0
 
-// 继续循环
-goto LOOP_START
-
-label END
-// 返回最大值
+push argument 1
 push temp 0
+eq
+if-goto loopEnd
+
+push argument 0
+push temp 0
+add
+pop pointer 1
+
+push that 0
+//store current value
+pop temp 2
+
+push temp 2
+push temp 1
+gt
+if-goto newVal
+goto loop
+
+label newVal
+push temp 2
+pop temp 1
+goto loop
+
+label loopEnd
+
+push temp 1
 return
 
+label retFalse
+push constant 0
+return
