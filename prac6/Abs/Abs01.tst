@@ -1,4 +1,4 @@
-// Test file Abs01 for Abs.vm
+// Sample Test file for Abs.vm
 // Follows the Test Scripting Language format described in 
 // Appendix B of the book "The Elements of Computing Systems"
 
@@ -11,24 +11,24 @@ output-list sp%D1.6.1 local%D1.6.1 argument%D1.8.1 this%D1.6.1 that%D1.6.1
             argument[0]%D1.11.1 argument[1]%D1.11.1 argument[2]%D1.11.1;
 
 set sp 256,        // stack pointer
-set local 310,     // base address of the local segment
-set argument 410,  // base address of the argument segment
-set this 3010,     // base address of the this segment
-set that 3020,     // base address of the that segment
+set local 300,     // base address of the local segment
+set argument 400,  // base address of the argument segment
+set this 3000,     // base address of the this segment
+set that 3010,     // base address of the that segment
 
-set RAM[16] 15,  // static 0
-set RAM[17] -10,  // static 1
-set RAM[18] 7,  // static 2
+set RAM[16] -10,  // static 0
+set RAM[17] -20,  // static 1
+set RAM[18] -30,  // static 2
 
-set local[0] 40,  // local 0
-set local[1] -35,  // local 1
-set local[2] 20,  // local 2
+set local[0] -100,  // local 0
+set local[1] -200,  // local 1
+set local[2] -300,  // local 2
 
-set argument[0] 90,  // argument 0
-set argument[1] -120,  // argument 1
-set argument[2] 70;  // argument 2
+set argument[0] -100,  // argument 0
+set argument[1] -200,  // argument 1
+set argument[2] -300;  // argument 2
 
-repeat 25 {        // Adjust as needed
+repeat 25 {        // Change this number to cover the number of instructions in the VM test file
   vmstep;
 }
 output;
