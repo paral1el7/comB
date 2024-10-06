@@ -1,0 +1,5 @@
+// Test for vm_if
+push constant 0
+if-goto END_IF
+push constant 100
+label END_IF

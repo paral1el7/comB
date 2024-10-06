@@ -1,0 +1,5 @@
+// Test pushing to the pointer segment (this/that)
+push constant 1
+push constant 2
+pop pointer 0  // Set THIS
+pop pointer 1  // Set THAT

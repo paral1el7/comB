@@ -1,0 +1,4 @@
+// Test for vm_return
+function SimpleFunction 0
+push constant 42
+return

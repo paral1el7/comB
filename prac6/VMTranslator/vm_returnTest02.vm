@@ -1,0 +1,4 @@
+// Test for vm_return in AnotherFunction
+function AnotherFunction 0
+push constant 100
+return

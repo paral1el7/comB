@@ -1,0 +1,4 @@
+// Test for vm_lt
+push constant 2
+push constant 8
+lt

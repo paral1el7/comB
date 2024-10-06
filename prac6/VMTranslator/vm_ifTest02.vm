@@ -1,0 +1,5 @@
+// Test for vm_if
+push constant 1
+if-goto CONTINUE
+push constant 50
+label CONTINUE

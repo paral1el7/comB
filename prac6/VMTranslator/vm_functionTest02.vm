@@ -1,0 +1,5 @@
+// Test for vm_function with 3 local variables
+function AnotherFunction 3
+push constant 1
+push constant 2
+sub

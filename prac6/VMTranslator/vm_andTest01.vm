@@ -1,0 +1,4 @@
+// Test for vm_and
+push constant 6
+push constant 3
+and

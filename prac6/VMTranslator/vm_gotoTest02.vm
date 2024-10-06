@@ -1,0 +1,5 @@
+// Test for vm_goto
+push constant 3
+goto SKIP_SECTION
+push constant 8
+label SKIP_SECTION

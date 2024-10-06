@@ -1,0 +1,5 @@
+// Test pushing and popping to the temp segment
+push constant 10
+pop temp 2
+push temp 2
+pop local 0

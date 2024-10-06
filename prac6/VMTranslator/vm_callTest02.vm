@@ -1,0 +1,2 @@
+// Test for vm_call with arguments
+call AnotherFunction 2

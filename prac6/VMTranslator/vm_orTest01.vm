@@ -1,0 +1,4 @@
+// Test for vm_or
+push constant 4
+push constant 1
+or

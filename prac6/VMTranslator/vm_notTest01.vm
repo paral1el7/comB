@@ -1,0 +1,3 @@
+// Test for vm_not
+push constant 0
+not

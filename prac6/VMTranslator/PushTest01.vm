@@ -1,0 +1,3 @@
+// Test pushing a constant value
+push constant 7
+push constant 10
